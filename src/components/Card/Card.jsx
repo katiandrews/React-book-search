@@ -10,10 +10,10 @@ export function Card({ img, title, subtitle, nights, price }) {
       <div className="card-description">
         <h3 className="card-title">{title}</h3>
         <div className="card-subtitle">
-          <p>{subtitle}</p>
-          <p>{nights}</p>
+          <p>{subtitle} •</p>
+          <p>{nights} nights</p>
         </div>
-        <p className="card-price">{price}</p>
+        <p className="card-price">${price}</p>
       </div>
     </div>
   );
