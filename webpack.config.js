@@ -4,25 +4,25 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const devServer = (isDev) => !isDev ? {} : {
+const devServer = (isDev) => isDev ? {
   devServer: {
     open: true,
     hot: true,
     port: 8080,
   },
-};
+} : {};
 
-const esLintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })];
+const esLintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ['js', 'jsx'] })];
 
 module.exports = ({ development }) => ({
   mode: development ? 'development' : 'production',
-  devtool: development ? 'inline-source-map' : false,
+  devtool: development ? 'inline-source-map' : 'hidden-source-map',
   entry: {
     main: './src/app.jsx',
   },
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     assetModuleFilename: 'assets/[hash][ext]',
   },
   module: {
@@ -33,7 +33,11 @@ module.exports = ({ development }) => ({
         exclude: /node_modules/,
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.svg$/i,
+        loader: 'svg-react-loader'
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
       {
@@ -54,7 +58,6 @@ module.exports = ({ development }) => ({
     ...esLintPlugin(development),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({
-      title: 'React.Components',
       template: path.resolve(__dirname, './src/index.html'),
     }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

@@ -1,0 +1,20 @@
+.card {
+  padding: 24px 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+
+  & .card-title {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  & .card-description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .card-subtitle {
+    display: flex;
+    gap: 8px;
+  }
+}
