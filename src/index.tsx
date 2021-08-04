@@ -1,11 +1,7 @@
 import ReactDOM from "react-dom";
-import { Lo } from "./components/lo";
+import { Form } from "./components/Form/Form";
+import "./style.css";
 
-const App = () => (
-  <Lo/>
-);
+const App = () => <Form />;
 
-ReactDOM.render(
-    <App />,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));

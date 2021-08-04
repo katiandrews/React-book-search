@@ -17,11 +17,12 @@
     "prettier"
   ],
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
     "airbnb-typescript/base",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "plugin:prettier/recommended",
     "plugin:import/typescript",
     "plugin:import/errors",
     "plugin:import/warnings"
