@@ -1,7 +1,8 @@
 import ReactDOM from "react-dom";
+import { Lo } from "./components/lo";
 
 const App = () => (
-  <h1>My React and TypeScript App!Hello!</h1>
+  <Lo/>
 );
 
 ReactDOM.render(

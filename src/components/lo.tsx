@@ -1,5 +1,5 @@
-export function lo() {
-  return(
-    <h1>FDFKDSFK</h1>
+export function Lo() {
+  return (
+  <h1>My React and TypeScript App!Hello!</h1>
   )
 }
