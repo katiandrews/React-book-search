@@ -12,7 +12,7 @@ export function Form({ setFormValues }: IProps) {
     dish: "",
     type: "",
     description: "",
-    date: "",
+    date: new Date().toISOString().slice(0, 10),
     vegan: false,
     tried: false,
   });
