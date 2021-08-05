@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap");
+
+body {
+  height: 100vh;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #303030;
+  background-image: radial-gradient(
+    circle,
+    #c2ffd9,
+    #b9fef2,
+    #c1faff,
+    #d3f5ff,
+    #e4f0ff,
+    #edeeff,
+    #f7ecfb,
+    #ffeaf5,
+    #ffebee,
+    #ffefe4,
+    #fff5dc,
+    #fffddb
+  );
+}
+
+.main {
+  padding: 2% 10%;
+
+  & .cards-container {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 990px) {
+  .main {
+    & .cards-container {
+      gap: 24px;
+    }
+  }
+}
