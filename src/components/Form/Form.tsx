@@ -17,6 +17,12 @@ export function Form({ setFormValues }: IProps) {
     tried: false,
   });
 
+  const [errors, setErrors] = useState({ dish: false, type: false });
+
+  const validate = () => {
+    setErrors({ dish: !formState.dish, type: !formState.type });
+  };
+
   const changeState = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
@@ -27,7 +33,10 @@ export function Form({ setFormValues }: IProps) {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setFormValues((state) => [...state, formState]);
+    const errorCheck = Object.values(errors).includes(true);
+    if (!errorCheck) {
+      setFormValues((state) => [...state, formState]);
+    }
   };
 
   return (
@@ -39,6 +48,7 @@ export function Form({ setFormValues }: IProps) {
         name="dish"
         value={formState.dish}
         onChange={changeState}
+        error={errors.dish}
       />
       <label className={s.item} htmlFor="type">
         Type of Meal
@@ -54,6 +64,7 @@ export function Form({ setFormValues }: IProps) {
           <option value="dessert">Dessert</option>
           <option value="cocktail">Cocktail</option>
         </select>
+        {errors.type && <span>*Certain type must be chosen</span>}
       </label>
       <Input
         text="Description"
@@ -94,7 +105,13 @@ export function Form({ setFormValues }: IProps) {
         />
         Tried
       </label>
-      <input className={s.submit} type="submit" value="Send" />
+      <input
+        className={s.submit}
+        type="submit"
+        value="Send"
+        onClick={validate}
+        onSubmit={handleSubmit}
+      />
     </form>
   );
 }

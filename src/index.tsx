@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import { Card } from "./components/Card/Card";
 import { Form } from "./components/Form/Form";

@@ -4,6 +4,7 @@ interface IProps {
   name: string;
   value: string;
   text: string;
+  error?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,6 +15,7 @@ export function Input({
   onChange,
   name,
   text,
+  error,
 }: IProps) {
   return (
     <label className={`input ${className}`} htmlFor={name}>
@@ -25,6 +27,7 @@ export function Input({
         value={value}
         onChange={onChange}
       />
+      {error && <span>*This input must be filled</span>}
     </label>
   );
 }
