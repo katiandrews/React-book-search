@@ -34,6 +34,7 @@ export function Form({ setFormValues }: IProps) {
     <form className={s.form} onSubmit={handleSubmit} action="">
       <Input
         className={s.item}
+        text="Name of the dish"
         type="text"
         name="dish"
         value={formState.dish}
@@ -55,6 +56,7 @@ export function Form({ setFormValues }: IProps) {
         </select>
       </label>
       <Input
+        text="Description"
         className={s.item}
         type="text"
         name="description"
@@ -62,6 +64,7 @@ export function Form({ setFormValues }: IProps) {
         onChange={changeState}
       />
       <Input
+        text="Date"
         className={s.item}
         type="date"
         name="date"
@@ -73,7 +76,9 @@ export function Form({ setFormValues }: IProps) {
           type="checkbox"
           name="vegan"
           checked={formState.vegan}
-          onChange={changeState}
+          onChange={() => {
+            setFormState({ ...formState, vegan: !formState.vegan });
+          }}
         />
         <span className={`${s.slider} ${s.round}`}></span>
         Vegan
@@ -83,11 +88,13 @@ export function Form({ setFormValues }: IProps) {
           type="checkbox"
           name="tried"
           checked={formState.tried}
-          onChange={changeState}
+          onChange={() => {
+            setFormState({ ...formState, tried: !formState.tried });
+          }}
         />
         Tried
       </label>
-      <input type="submit" value="Send" />
+      <input className={s.submit} type="submit" value="Send" />
     </form>
   );
 }

@@ -1,0 +1,12 @@
+.card {
+  padding: 24px 32px;
+  background-color: #f5fff5;
+  border-top: 4px solid #fcb69f;
+  -webkit-box-shadow: 3px 10px 13px -4px rgba(82, 52, 52, 0.1);
+  box-shadow: 3px 10px 13px -4px rgba(82, 52, 52, 0.1);
+}
+
+.info {
+  list-style: none;
+  padding: 0;
+}
