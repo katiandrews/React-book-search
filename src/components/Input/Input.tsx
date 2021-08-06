@@ -1,3 +1,5 @@
+import s from "../Form/Form.css";
+
 interface IProps {
   className: string;
   type: string;
@@ -27,7 +29,7 @@ export function Input({
         value={value}
         onChange={onChange}
       />
-      {error && <span>*This input must be filled</span>}
+      {error && <span className={s.error}>*This input must be filled</span>}
     </label>
   );
 }

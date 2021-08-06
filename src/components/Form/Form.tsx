@@ -36,6 +36,14 @@ export function Form({ setFormValues }: IProps) {
     const errorCheck = Object.values(errors).includes(true);
     if (!errorCheck) {
       setFormValues((state) => [...state, formState]);
+      setFormState({
+        dish: "",
+        type: "",
+        description: "",
+        date: new Date().toISOString().slice(0, 10),
+        vegan: false,
+        tried: false,
+      });
     }
   };
 
@@ -64,7 +72,9 @@ export function Form({ setFormValues }: IProps) {
           <option value="dessert">Dessert</option>
           <option value="cocktail">Cocktail</option>
         </select>
-        {errors.type && <span>*Certain type must be chosen</span>}
+        {errors.type && (
+          <span className={s.error}>*Certain type must be chosen</span>
+        )}
       </label>
       <Input
         text="Description"

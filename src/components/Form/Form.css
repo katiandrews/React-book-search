@@ -1,5 +1,5 @@
 .form {
-  width: max-content;
+  min-width: 250px;
   padding: 24px;
   gap: 12px;
   display: flex;
@@ -85,4 +85,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.error {
+  color: rgb(219, 68, 41);
 }
