@@ -1,0 +1,14 @@
+:global(.button) {
+  padding: 8px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+:global(.button-primary) {
+  background-color: rgb(240, 252, 73);
+  border: none;
+}
+
+:global(.button-primary:hover) {
+  background-color: rgb(233, 245, 66);
+}
