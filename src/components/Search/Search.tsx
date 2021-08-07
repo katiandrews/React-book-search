@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { getBooks } from "../../api/book-search";
 import SearchIcon from "../../assets/search.svg";
 import { Button } from "../Button/Button";
 import s from "./Search.css";
 
-export function Search() {
+interface IProps {
+  setBooks: React.Dispatch<React.SetStateAction<never[]>>;
+}
+
+export function Search({ setBooks }: IProps) {
   const [formState, setState] = useState({
     search: "",
     sort: "relevance",
@@ -14,15 +19,19 @@ export function Search() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setState({ ...formState, [e.target.name]: e.target.value });
-    console.log(formState);
   };
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    getBooks(formState.search, formState.sort, formState.quantity).then(
+      (books) => {
+        setBooks(books);
+      }
+    );
   };
 
   return (
-    <form className={s.form}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <div className={s.container}>
         <SearchIcon className={s.icon} />
         <input
