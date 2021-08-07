@@ -1,3 +1,10 @@
-export function BookCard() {
-  return <h2>Hello, i'm a book</h2>;
+import { StringifyOptions } from "node:querystring";
+import s from "./BookCard.css";
+
+interface IProps {
+  title: string;
+}
+
+export function BookCard({ title }: IProps) {
+  return <div className={s.card}>{title}</div>;
 }

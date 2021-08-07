@@ -14,7 +14,7 @@ export const getBooks = async (
     if (!res.ok) {
       throw new Error("Nothing has been found");
     }
-    return data;
+    return data.items;
   } catch (error) {
     throw error;
   }

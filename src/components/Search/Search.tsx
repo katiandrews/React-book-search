@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { getBooks } from "../../api/book-search";
 import SearchIcon from "../../assets/search.svg";
+import { IBook } from "../../interfaces/IBook";
 import { Button } from "../Button/Button";
 import s from "./Search.css";
 
 interface IProps {
-  setBooks: React.Dispatch<React.SetStateAction<never[]>>;
+  setBooks: React.Dispatch<React.SetStateAction<IBook[] | null>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Search({ setBooks }: IProps) {
+export function Search({ setBooks, setLoading }: IProps) {
   const [formState, setState] = useState({
     search: "",
     sort: "relevance",
@@ -25,6 +27,7 @@ export function Search({ setBooks }: IProps) {
     e.preventDefault();
     getBooks(formState.search, formState.sort, formState.quantity).then(
       (books) => {
+        setLoading(false);
         setBooks(books);
       }
     );
