@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.pageNumber {
+  width: 30px;
+  padding: 4px;
+  text-align: center;
+  border-radius: 24px;
+  border: 2px solid #6ccde6;
+}
+
+.pageNumber:focus-visible {
+  outline: none;
+}

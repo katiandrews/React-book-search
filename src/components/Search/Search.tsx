@@ -2,33 +2,40 @@ import { useState } from "react";
 import { getBooks } from "../../api/book-search";
 import SearchIcon from "../../assets/search.svg";
 import { IBook } from "../../interfaces/IBook";
+import { ISearch } from "../../interfaces/ISearch";
+import { calculatePages } from "../../shared/calculatePages";
 import { Button } from "../Button/Button";
 import s from "./Search.css";
 
 interface IProps {
   setBooks: React.Dispatch<React.SetStateAction<IBook[] | null>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchState: React.Dispatch<React.SetStateAction<ISearch>>;
+  searchState: ISearch;
+  setPages: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function Search({ setBooks, setLoading }: IProps) {
-  const [formState, setState] = useState({
-    search: "",
-    sort: "relevance",
-    quantity: 10,
-  });
-
+export function Search({
+  setBooks,
+  setLoading,
+  setSearchState,
+  searchState,
+  setPages,
+}: IProps) {
   const changeState = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setState({ ...formState, [e.target.name]: e.target.value });
+    setSearchState({ ...searchState, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    getBooks(formState.search, formState.sort, formState.quantity).then(
+    setLoading(true);
+    getBooks(searchState.search, searchState.sort, searchState.quantity).then(
       (books) => {
         setLoading(false);
-        setBooks(books);
+        setBooks(books.items);
+        setPages(calculatePages(books.totalItems, searchState.quantity));
       }
     );
   };
