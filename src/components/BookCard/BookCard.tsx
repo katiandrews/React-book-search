@@ -23,7 +23,7 @@ export function BookCard({ book }: IProps) {
             ? `${book.volumeInfo.title.slice(0, 50)}...`
             : book.volumeInfo.title}
         </h3>
-        <p className={s.author}>{book.volumeInfo?.authors}</p>
+        <p className={s.author}>{book.volumeInfo?.authors?.join(", ")}</p>
         <p className={s.subtitle}>
           {book.volumeInfo.publishedDate}, Language: {book.volumeInfo.language}
         </p>

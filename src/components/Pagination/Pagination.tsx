@@ -27,7 +27,9 @@ export function Pagination({ pages, currentPage, setCurrentPage }: IProps) {
           setCurrentPage(() =>
             Number(e.target.value) > 0 ? Number(e.target.value) : 1
           );
+          e.target.value = !e.target.value ? "1" : e.target.value;
         }}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {}}
       />
       of {pages}
     </form>
