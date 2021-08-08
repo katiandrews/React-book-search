@@ -25,10 +25,7 @@ export const App = () => {
       </header>
       <main>
         {isLoading && <Loading />}
-        {books &&
-          books.map((book) => (
-            <BookCard key={book.id} title={book.volumeInfo.title} />
-          ))}
+        {books && books.map((book) => <BookCard key={book.id} book={book} />)}
       </main>
     </>
   );

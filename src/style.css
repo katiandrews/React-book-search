@@ -12,6 +12,7 @@ body {
 main {
   padding: 40px 5%;
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
 }

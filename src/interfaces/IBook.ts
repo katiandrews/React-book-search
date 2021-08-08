@@ -2,7 +2,7 @@ interface IVolumeInfo {
   title: string;
   authors: string[];
   publishedDate: string;
-  imageLinks: { smallThumbnail: string };
+  imageLinks: { smallThumbnail: string; thumbnail: string };
   language: string;
   previewLink: string;
 }
