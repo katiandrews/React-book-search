@@ -17,6 +17,6 @@ export const getBooks = async (
     }
     return data.totalItems > 0 ? data : false;
   } catch (error) {
-    error.message;
+    return error.message;
   }
 };

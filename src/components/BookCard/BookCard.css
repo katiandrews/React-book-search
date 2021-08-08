@@ -50,17 +50,17 @@
 
 @media (max-width: 1439px) {
   .card {
-    width: calc(100% / 3 - 22px);
+    width: calc(100% / 4 - 40px);
   }
 }
 
 @media (max-width: 990px) {
   .card {
-    width: calc(100% / 2 - 12px);
+    width: calc(100% / 3 - 40px);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 540px) {
   .card {
     width: 100%;
   }

@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  padding: 40px 5%;
+  padding: 40px 3%;
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -21,10 +21,11 @@ main {
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 64px;
-  height: 30vh;
+  height: 25vh;
   background-image: url("https://images.unsplash.com/photo-1618365908648-e71bd5716cba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80");
   background-size: cover;
   background-color: rgba(29, 29, 29, 0.575);

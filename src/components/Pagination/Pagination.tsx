@@ -1,4 +1,4 @@
-import { FormEventHandler, SyntheticEvent, useRef } from "react";
+import { SyntheticEvent, useRef } from "react";
 import s from "./Pagination.css";
 
 interface IProps {
@@ -29,7 +29,6 @@ export function Pagination({ pages, currentPage, setCurrentPage }: IProps) {
           );
           e.target.value = !e.target.value ? "1" : e.target.value;
         }}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {}}
       />
       of {pages}
     </form>

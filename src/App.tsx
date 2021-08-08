@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getBooks } from "./api/book-search";
 import { BookCard } from "./components/BookCard/BookCard";
 import { Loading } from "./components/Loading/Loading";
@@ -29,33 +29,27 @@ export const App = () => {
       searchState.sort,
       searchState.quantity,
       startIndex
-    ).then((books) => {
+    ).then((bookshelf) => {
       setLoading(false);
-      setBooks(books.items);
-      setPages(calculatePages(books.totalItems, searchState.quantity));
+      setBooks(bookshelf.items);
+      setPages(calculatePages(bookshelf.totalItems, searchState.quantity));
     });
-  }, [currentPage]);
+  }, [currentPage, searchState]);
 
   return (
     <>
       <header className="header">
         <h1>Search for Books</h1>
-        <Search
-          setBooks={setBooks}
-          setLoading={setLoading}
-          setSearchState={setSearchState}
-          searchState={searchState}
-          setPages={setPages}
-        />
+        <Search setSearchState={setSearchState} />
       </header>
       <main>
-        {isLoading ? (
-          <Loading />
-        ) : books ? (
-          books.map((book) => <BookCard key={book.id} book={book} />)
-        ) : (
-          "Books have not been found, try with another query"
-        )}
+        {isLoading && <Loading />}
+        {!isLoading &&
+          !books &&
+          "Books have not been found, try with another query"}
+        {!isLoading &&
+          books &&
+          books.map((book) => <BookCard key={book.id} book={book} />)}
       </main>
       <Pagination
         currentPage={currentPage}
