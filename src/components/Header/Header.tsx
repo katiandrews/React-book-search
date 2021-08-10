@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "./Header.css";
 
 export function Header() {
