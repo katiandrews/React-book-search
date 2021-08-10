@@ -1,0 +1,24 @@
+.header {
+  padding: 8px 5%;
+  background-color: #000;
+  color: #fff;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.item {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: #fff;
+  text-decoration: none;
+}
+
+.item:hover {
+  border-bottom: 2px solid #fff;
+}

@@ -27,46 +27,49 @@ export function Search({ setSearchState }: IProps) {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmit}>
-      <div className={s.container}>
-        <SearchIcon className={s.icon} />
-        <input
-          type="text"
-          name="search"
-          className={s.input}
-          placeholder="Type here..."
-          onChange={changeState}
-        />
-        <Button classNames="button-primary" text="Search" isSubmit />
-      </div>
-      <div className={s.filters}>
-        <div className={s.filter}>
-          Sort by:
-          <select
-            name="sort"
-            id="sort"
+    <div className={s.search}>
+      <h1>Search for Books</h1>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <div className={s.container}>
+          <SearchIcon className={s.icon} />
+          <input
+            type="text"
+            name="search"
+            className={s.input}
+            placeholder="Type here..."
             onChange={changeState}
-            className={s.select}
-          >
-            <option value="relevance">Relevance</option>
-            <option value="newest">Newest</option>
-          </select>
+          />
+          <Button classNames="button-primary" text="Search" isSubmit />
         </div>
-        <div className={s.filter}>
-          Results by page:
-          <select
-            name="quantity"
-            id="quantity"
-            onChange={changeState}
-            className={s.select}
-          >
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-          </select>
+        <div className={s.filters}>
+          <div className={s.filter}>
+            Sort by:
+            <select
+              name="sort"
+              id="sort"
+              onChange={changeState}
+              className={s.select}
+            >
+              <option value="relevance">Relevance</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+          <div className={s.filter}>
+            Results by page:
+            <select
+              name="quantity"
+              id="quantity"
+              onChange={changeState}
+              className={s.select}
+            >
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+            </select>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
