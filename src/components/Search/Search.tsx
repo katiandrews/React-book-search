@@ -37,11 +37,7 @@ export function Search({ setSearchState }: IProps) {
           placeholder="Type here..."
           onChange={changeState}
         />
-        <Button
-          classNames="button-primary"
-          text="Search"
-          isSubmit
-        />
+        <Button classNames="button-primary" text="Search" isSubmit />
       </div>
       <div className={s.filters}>
         <div className={s.filter}>
