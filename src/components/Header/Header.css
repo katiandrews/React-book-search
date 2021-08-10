@@ -22,3 +22,7 @@
 .item:hover {
   border-bottom: 2px solid #fff;
 }
+
+.active {
+  border-bottom: 2px solid #fff;
+}
