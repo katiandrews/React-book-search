@@ -1,7 +1,5 @@
 .card {
   width: calc(100% / 4 - 120px);
-  display: flex;
-  flex-direction: column;
   background-color: rgb(255, 255, 255);
   -webkit-box-shadow: 4px 4px 17px -3px rgba(34, 60, 80, 0.12);
   -moz-box-shadow: 4px 4px 17px -3px rgba(34, 60, 80, 0.12);
@@ -13,6 +11,13 @@
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .image {

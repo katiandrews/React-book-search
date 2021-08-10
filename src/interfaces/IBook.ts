@@ -1,4 +1,4 @@
-interface IVolumeInfo {
+export interface IVolumeInfo {
   title: string;
   authors: string[];
   publishedDate: string;

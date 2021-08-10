@@ -1,37 +1,26 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import s from "./Header.css";
 
 export function Header() {
-  const [activeRoute, setActiveRoute] = useState("home");
-
   return (
     <header className={s.header}>
       <nav>
         <ul className={s.nav}>
-          <li
-            onClick={() => {
-              setActiveRoute("home");
-            }}
-          >
-            <Link
-              className={`${s.item} ${activeRoute === "home" ? s.active : ""}`}
-              to="/"
-            >
+          <li>
+            <NavLink className={s.item} activeClassName={s.active} exact to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
-          <li
-            onClick={() => {
-              setActiveRoute("about");
-            }}
-          >
-            <Link
-              className={`${s.item} ${activeRoute === "about" ? s.active : ""}`}
+          <li>
+            <NavLink
+              className={s.item}
+              activeClassName={s.active}
+              exact
               to="/about"
             >
               About
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

@@ -20,3 +20,19 @@ export const getBooks = async (
     return error.message;
   }
 };
+
+export const getBook = async (bookId: string) => {
+  try {
+    const res = await fetch(
+      `https://www.googleapis.com/books/v1/volumes/${bookId}`
+    );
+    const book = await res.json();
+
+    if (!res.ok) {
+      throw new Error("Nothing has been found");
+    }
+    return book;
+  } catch (error) {
+    return error.message;
+  }
+};
