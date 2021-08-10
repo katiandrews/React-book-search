@@ -41,7 +41,6 @@ export function Search({ setSearchState }: IProps) {
           classNames="button-primary"
           text="Search"
           isSubmit
-          onSubmit={handleSubmit}
         />
       </div>
       <div className={s.filters}>
