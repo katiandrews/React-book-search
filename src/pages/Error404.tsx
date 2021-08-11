@@ -1,7 +1,9 @@
+import errorImg from "../assets/notFound.png";
+
 export function Error404() {
   return (
-    <main>
-      <h1>Error page</h1>
+    <main className="error-page">
+      <img src={errorImg} alt="page not found" width="800" />
     </main>
   );
 }

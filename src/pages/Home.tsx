@@ -36,7 +36,7 @@ export function Home() {
   }, [currentPage, searchState]);
 
   return (
-    <>
+    <div>
       <Search setSearchState={setSearchState} />
       <main>
         {isLoading && <Loading />}
@@ -52,6 +52,6 @@ export function Home() {
         pages={totalPages}
         setCurrentPage={setCurrentPage}
       />
-    </>
+    </div>
   );
 }

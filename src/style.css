@@ -25,3 +25,25 @@ a {
   display: inline-block;
   text-decoration: none;
 }
+
+:global(.error-page) {
+  height: 84vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:global(.page-enter) {
+  opacity: 0;
+  z-index: 1;
+}
+
+:global(.page-enter-active) {
+  opacity: 1;
+  transition: opacity 250ms ease-out;
+}
+
+:global(.page-exit) {
+  opacity: 0;
+}

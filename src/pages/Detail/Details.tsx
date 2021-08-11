@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getBook } from "../api/book-search";
-import { IBook } from "../interfaces/IBook";
+import { getBook } from "../../api/book-search";
+import { IBook } from "../../interfaces/IBook";
 
 interface IProps {
   match: {
