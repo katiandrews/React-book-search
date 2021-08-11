@@ -1,0 +1,33 @@
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 0;
+  line-height: 1.4rem;
+}
+
+.card {
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  background-color: #fff;
+}
+
+.title {
+  margin: 0 0 12px 0;
+}
+
+.author {
+  color: rgb(139, 139, 139);
+  margin: 0;
+}
+
+.description {
+}
+
+.additional {
+  font-size: 14px;
+  color: rgb(139, 139, 139);
+}
