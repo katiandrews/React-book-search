@@ -16,8 +16,10 @@
   "author": "katiandrews",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.2"
   },
@@ -49,6 +51,7 @@
     "lint-staged": "^11.1.1",
     "mini-css-extract-plugin": "^2.1.0",
     "prettier": "^2.3.2",
+    "redux-devtools-extension": "^2.13.9",
     "style-loader": "^3.2.1",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.1.0",
