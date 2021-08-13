@@ -29,6 +29,7 @@
   ],
   "root": true,
   "rules": {
+    "import/no-cycle": "off",
     "no-underscore-dangle": "off",
     "no-use-before-define": [
       "error",

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchIcon from "../../assets/search.svg";
-import { ISearch } from "../../interfaces/ISearch";
+import { ISearch } from "../../shared/interfaces/ISearch";
 import { Button } from "../Button/Button";
 import s from "./Search.css";
 

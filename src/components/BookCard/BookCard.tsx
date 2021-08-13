@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IBook } from "../../interfaces/IBook";
+import { IBook } from "../../shared/interfaces/IBook";
 import s from "./BookCard.css";
 
 interface IProps {

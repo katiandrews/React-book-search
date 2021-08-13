@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
-import { getBooks } from "../api/book-search";
+import { useSelector, useDispatch } from "react-redux";
+import { getBooks } from "../shared/api/book-search";
 import { BookCard } from "../components/BookCard/BookCard";
 import { Loading } from "../components/Loading/Loading";
 import { Pagination } from "../components/Pagination/Pagination";
 import { Search } from "../components/Search/Search";
-import { IBook } from "../interfaces/IBook";
-import { ISearch } from "../interfaces/ISearch";
+import { IBook } from "../shared/interfaces/IBook";
+import { ISearch } from "../shared/interfaces/ISearch";
 import { calcStartIndex } from "../shared/calcStartIndex";
 import { calculatePages } from "../shared/calculatePages";
+import { selectBooks, setBooks } from "../redux/slices/books";
 
 export function Home() {
-  const [books, setBooks] = useState<IBook[] | null>(null);
+  const books = useSelector(selectBooks);
+  const dispatch = useDispatch();
+
   const [searchState, setSearchState] = useState<ISearch>({
     search: "Harry Potter",
     sort: "relevance",
@@ -30,10 +34,10 @@ export function Home() {
       startIndex
     ).then((bookshelf) => {
       setLoading(false);
-      setBooks(bookshelf.items);
+      dispatch(setBooks(bookshelf.items));
       setPages(calculatePages(bookshelf.totalItems, searchState.quantity));
     });
-  }, [currentPage, searchState]);
+  }, [currentPage, searchState, dispatch]);
 
   return (
     <div>
@@ -45,7 +49,7 @@ export function Home() {
           "Books have not been found, try with another query"}
         {!isLoading &&
           books &&
-          books.map((book) => <BookCard key={book.id} book={book} />)}
+          books?.map((book: IBook) => <BookCard key={book.id} book={book} />)}
       </main>
       <Pagination
         currentPage={currentPage}

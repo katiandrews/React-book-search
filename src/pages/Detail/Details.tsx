@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { getBook } from "../../api/book-search";
-import { IBook } from "../../interfaces/IBook";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getBook } from "../../shared/api/book-search";
+import { selectBook, setBook } from "../../redux/slices/activeBook";
 import s from "./Detail.css";
 
 interface IProps {
@@ -10,13 +11,14 @@ interface IProps {
 }
 
 export function Details({ match }: IProps) {
-  const [book, setBook] = useState<IBook>();
+  const dispatch = useDispatch();
+  const book = useSelector(selectBook);
 
   useEffect(() => {
     getBook(match.params.id).then((item) => {
-      setBook(item);
+      dispatch(setBook(item));
     });
-  }, [match.params.id]);
+  }, [match.params.id, dispatch]);
 
   return (
     <main className={s.page}>
