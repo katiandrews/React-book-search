@@ -5,7 +5,8 @@
       "ESNext"
     ],
     "types": [
-      "node"
+      "node",
+      "@types/jest"
     ],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -21,6 +22,7 @@
   },
   "include": [
     "src/**/*",
-    "declarations.d.ts"
-, "types.d.ts"  ]
+    "declarations.d.ts",
+     "types.d.ts",
+    "src/__tests__/*.tsx" ]
 }
