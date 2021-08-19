@@ -8,9 +8,11 @@ logs
 npm-debug.log*
 
 # Dependency directories
+
 node_modules
 .env
 
 # Build results
 dist
 build
+coverage
