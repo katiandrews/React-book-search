@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
       "\\.(css|less)$": "identity-obj-proxy",
-      "\\.(jpg|jpeg|png|gif)$": "<rootDir>/src/__mocks__/fileMock.ts"
+      "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/src/__mocks__/fileMock.ts"
     },
   collectCoverageFrom: [
     "src/**/*.tsx",

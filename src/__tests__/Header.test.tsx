@@ -9,6 +9,8 @@ test("Header contains correct text", () => {
       <Header />
     </Router>
   );
-  const text = screen.getByText("Home");
-  expect(text).not.toBeNull();
+  const homeText = screen.getByText("Home");
+  const aboutText = screen.getByText("About");
+  expect(homeText).toBeDefined();
+  expect(aboutText).toBeDefined();
 });
