@@ -1,1 +1,2 @@
-# Repository for React course's projects by the Rolling Scopes School
+# The application helps to find the book by using Google API. 
+After search is perfomed, user can open a page with detailed information about the book.
